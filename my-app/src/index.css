@@ -49,5 +49,5 @@ ol, ul {
   margin-left: 20px;
 }
 .stepcolor {
-  color: red;
+  border: 1px solid red;
 }

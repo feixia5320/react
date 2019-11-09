@@ -3,18 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 
 function Square(props) {
-  return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
-    </button>
-  );
+  if (props.highlight) {
+    return (
+      <button className="square" onClick={props.onClick} style={{ color: 'red' }}>
+        {props.value}
+      </button>
+    );
+  } else {
+    return (
+      <button className="square" onClick={props.onClick}>
+        {props.value}
+      </button>
+    );
+  }
 }
 
 class Board extends React.Component {
   renderSquare(i) {
     return (
-      <Square value={this.props.squares[i]}
+      <Square key={i} value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
+        highlight={this.props.line.includes(i)}
       />
     )
   }
@@ -25,7 +34,7 @@ class Board extends React.Component {
       for (let j = i * 3; j < i * 3 + 3; j++) {
         row.push(this.renderSquare(j))
       }
-      rows.push(<div className="board-row">{row}</div>);
+      rows.push(<div key={i} className="board-row">{row}</div>);
     }
     return (
       <div>
@@ -57,7 +66,7 @@ class Game extends React.Component {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
+    if (calculateWinner(squares).winner || squares[i]) {
       return;
     }
     let y = Math.floor(i / 3) + 1;
@@ -71,6 +80,7 @@ class Game extends React.Component {
       }]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext,
+      sort: true
     });
   }
 
@@ -82,21 +92,29 @@ class Game extends React.Component {
   }
 
   getStyle(index) {
-    return index == this.state.stepNumber ? 'stepcolor' : null;
+    return index === this.state.stepNumber ? 'stepcolor' : null;
+  }
+
+  toggleSort() {
+    this.setState({
+      sort: !this.state.sort,
+    })
   }
   render() {
-    const history = this.state.history;
+    let history = this.state.history;
     const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
+    const winner = calculateWinner(current.squares).winner;
+    const line = calculateWinner(current.squares).line;
+    if (!this.state.sort) {
+      history = this.state.history.slice();
+      history.reverse();
+    }
 
     const moves = history.map((step, move) => {
-      const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+      let desc = 'x:' + step.x + ";y:" + step.y;
       return (
         <li key={move} className={this.getStyle(move)}>
-          <button onClick={() => this.jumpTo(move)}>{desc}</button>
-          <span>横:{step.x} 纵:{step.y}</span>
+          <button style={{ width: '80px' }} onClick={() => this.jumpTo(move)}>{desc}</button>
         </li>
       );
     });
@@ -113,17 +131,18 @@ class Game extends React.Component {
           <Board
             squares={current.squares}
             onClick={(i) => this.handleClick(i)}
+            line={line}
           />
         </div>
         <div className="game-info">
           <div>{status}</div>
-          <ol>{moves}</ol>
+          <ol style={{ listStyle: 'none' }}>{moves}</ol>
         </div>
+        <button className="revertbtn" onClick={() => { this.toggleSort() }}>revert</button>
       </div>
     );
   }
 }
-
 
 function calculateWinner(squares) {
   const lines = [
@@ -139,10 +158,10 @@ function calculateWinner(squares) {
   for (let i = 0; i < lines.length; i++) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-      return squares[a];
+      return { winner: squares[a], line: [a, b, c] };
     }
   }
-  return null;
+  return { winner: null, line: [] };
 }
 
 // ========================================
