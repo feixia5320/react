@@ -18,27 +18,24 @@ class Board extends React.Component {
       />
     )
   }
-
-  render() {
+  renderSquare2() {
+    let rows = [];
+    for (let i = 0; i < 3; i++) {
+      let row = [];
+      for (let j = i * 3; j < i * 3 + 3; j++) {
+        row.push(this.renderSquare(j))
+      }
+      rows.push(<div className="board-row">{row}</div>);
+    }
     return (
       <div>
-        <div className="board-row">
-          {this.renderSquare(0)}
-          {this.renderSquare(1)}
-          {this.renderSquare(2)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(3)}
-          {this.renderSquare(4)}
-          {this.renderSquare(5)}
-        </div>
-        <div className="board-row">
-          {this.renderSquare(6)}
-          {this.renderSquare(7)}
-          {this.renderSquare(8)}
-        </div>
+        {rows}
       </div>
-    );
+    )
+  }
+
+  render() {
+    return (this.renderSquare2());
   }
 }
 
@@ -83,7 +80,7 @@ class Game extends React.Component {
       xIsNext: (step % 2) === 0,
     });
   }
-  
+
   getStyle(index) {
     return index == this.state.stepNumber ? 'stepcolor' : null;
   }
