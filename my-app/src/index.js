@@ -63,7 +63,7 @@ class Game extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    let y =Math.floor( i / 3) + 1;
+    let y = Math.floor(i / 3) + 1;
     let x = i % 3 + 1;
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
@@ -83,7 +83,10 @@ class Game extends React.Component {
       xIsNext: (step % 2) === 0,
     });
   }
-
+  
+  getStyle(index) {
+    return index == this.state.stepNumber ? 'stepcolor' : null;
+  }
   render() {
     const history = this.state.history;
     const current = history[this.state.stepNumber];
@@ -94,7 +97,7 @@ class Game extends React.Component {
         'Go to move #' + move :
         'Go to game start';
       return (
-        <li key={move}>
+        <li key={move} className={this.getStyle(move)}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
           <span>横:{step.x} 纵:{step.y}</span>
         </li>
@@ -123,6 +126,7 @@ class Game extends React.Component {
     );
   }
 }
+
 
 function calculateWinner(squares) {
   const lines = [
