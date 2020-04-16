@@ -45,7 +45,7 @@ class Reservation extends React.Component {
     );
   }
 }
-
+/*
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
@@ -83,4 +83,5 @@ class NameForm extends React.Component {
     );
   }
 }
+*/
 export default Reservation;

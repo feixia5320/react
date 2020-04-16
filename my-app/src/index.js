@@ -1,7 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import MyRouter from './router'
+// import RouterLazy from './router-lazy'
 
+ReactDOM.render(
+  <MyRouter />,
+  document.getElementById('root')
+);
+
+/*
 // eslint-disable-next-line
 import Game from "./component/game/game";
 import MySelect from './component/form/2-select'
@@ -23,3 +31,4 @@ ReactDOM.render(
   arr,
   document.getElementById('root')
 );
+*/
