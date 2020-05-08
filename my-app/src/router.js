@@ -11,7 +11,7 @@ import ContextApp4 from './component/context-multi/app'
 const MyRouter = () => (
     <HashRouter>
         <Switch>
-            <Route exact path="/c" component={MySelect}/>
+            <Route exact path="/" component={MySelect}/>
             <Route exact path="/d" component={Reservation}/>
             <Route exact path="/cont1" component={ContextApp1}/>
             <Route exact path="/cont2" component={ContextApp2}/>
