@@ -1,5 +1,7 @@
 import React from 'react'
-
+/**
+ * 组件嵌套
+ */
 function FancyBorder(props) {
     return (
         <div className={'FancyBorder FancyBorder-' + props.color}>

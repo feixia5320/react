@@ -1,11 +1,19 @@
 import React from 'react';
 
+/**
+ * 实战练习，state状态提升
+ */
+// 子标题
 class ProductCategoryRow extends React.Component {
     render() {
         const category = this.props.category;
+        let border = {
+            // border: '1px solid blue;',
+            color: 'blue'
+        }
         return (
             <tr>
-                <th colSpan="2">
+                <th colSpan="2" style={border}>
                     {category}
                 </th>
             </tr>
@@ -87,7 +95,7 @@ class SearchBar extends React.Component {
         console.log("handleChange")
     }
     handleChangeBox(e) {
-        this.props.onBoxChange(e.target.value);
+        this.props.onBoxChange(e.target.checked);
     }
     render() {
         const filterText = this.props.filterText;
@@ -162,6 +170,10 @@ const PRODUCTS = [
     { category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7' }
 ];
 
-// export default (<FilterableProductTable products={PRODUCTS} />)
+function StatusOut() {
+    return (<FilterableProductTable products={PRODUCTS} />)
+}
+
 export {PRODUCTS, FilterableProductTable}
+export default StatusOut
 

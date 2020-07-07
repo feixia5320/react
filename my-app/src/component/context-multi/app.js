@@ -1,4 +1,8 @@
 import React from 'react'
+
+/**
+ * 多个context
+ */
 // Theme context，默认的 theme 是 “light” 值
 const ThemeContext = React.createContext('light');
 
@@ -52,7 +56,7 @@ function ProfilePage(props) {
 }
 function test () {
     return(
-        <ContextApp signedInUser="sdfsdf" theme="theme"/>
+        <ContextApp signedInUser="user-" theme="theme"/>
     )
 }
 export default test;

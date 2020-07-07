@@ -30,7 +30,7 @@ class ContextApp extends React.Component {
           <Toolbar changeTheme={this.toggleTheme} />
         </ThemeContext.Provider>
         <div>
-          <ThemedButton >22222</ThemedButton>
+          <ThemedButton>22222</ThemedButton>
         </div>
       </div>
     );

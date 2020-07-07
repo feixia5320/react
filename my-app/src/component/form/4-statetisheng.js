@@ -1,5 +1,9 @@
 import React from 'react';
 
+/**
+ * status提升
+ */
+
 const scaleNames = {
     c: 'Celsius',
     f: 'Fahrenheit'
@@ -53,7 +57,7 @@ class TemperatureInput extends React.Component {
     }
 }
 
-class Calculator extends React.Component {
+class StatusCalculator extends React.Component {
     constructor(props) {
         super(props);
         this.handleCelsiusChange = this.handleCelsiusChange.bind(this);
@@ -92,4 +96,4 @@ class Calculator extends React.Component {
     }
 }
 
-export default Calculator;
+export default StatusCalculator;

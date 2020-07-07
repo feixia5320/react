@@ -1,5 +1,8 @@
 import React from 'react'
 
+/**
+ * 处理多个 input 元素时，我们可以给每个元素添加 name 属性，并让处理函数根据 event.target.name 的值选择要执行的操作。
+ */
 class Reservation extends React.Component {
   constructor(props) {
     super(props);

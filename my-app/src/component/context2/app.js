@@ -2,6 +2,9 @@ import React from "react";
 import { ThemeContext, themes } from "./theme-context";
 import ThemeTogglerButton from "./theme-toggler-button";
 
+/**
+ * 在嵌套组件中更新 Context
+ */
 class contextApp extends React.Component {
   constructor(props) {
     super(props);
