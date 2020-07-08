@@ -11,6 +11,7 @@ import ContextApp0 from './component/form/6-context'
 import ContextApp1 from './component/context/app'
 import ContextApp2 from './component/context2/app'
 import ContextApp3 from './component/context-multi/app'
+import Ref1 from "./component/ref/1-ref";
 
 const MyRouter = () => (
     <HashRouter>
@@ -24,6 +25,7 @@ const MyRouter = () => (
             <Route exact path="/cont1" component={ContextApp1}/>
             <Route exact path="/cont2" component={ContextApp2}/>
             <Route exact path="/cont3" component={ContextApp3}/>
+            <Route exact path="/ref1" component={Ref1}/>
         </Switch>
     </HashRouter>
 );
