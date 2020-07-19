@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Redirect, HashRouter, Route, Switch} from 'react-router-dom';
 
 import Reservation from './component/form/1-form2'
 import MySelect from './component/form/2-select'
@@ -16,6 +16,7 @@ import Ref1 from "./component/ref/1-ref";
 const MyRouter = () => (
     <HashRouter>
         <Switch>
+            <Route exact path="/" component={MySelect}/>
             <Route exact path="/select" component={MySelect}/>
             <Route exact path="/multform" component={Reservation}/>
             <Route exact path="/combine" component={SignUpDialog}/>
@@ -29,5 +30,23 @@ const MyRouter = () => (
         </Switch>
     </HashRouter>
 );
+// ok
+// 嵌套路由
+// 重定向路由
+const Router2 = () => {
+    return (
+        <Router>
+            <Route path="/multform" component={Reservation}/>
+            <Route path="/select" render={() => (
+                <MySelect>
+                    <Route path="/select/cont0" component={ContextApp0}/>
+                </MySelect>
+            )} />
+            <Route path="/" render={() => (
+                <Redirect to='/select' />
+            )} />
+        </Router>
+    )
+}
 
-export default MyRouter;
+export default Router2;

@@ -20,19 +20,23 @@ class MySelect extends React.Component {
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            选择你喜欢的风味234:
-            <select value={this.state.value} onChange={this.handleChange}>
-              <option value="grapefruit">葡萄柚</option>
-              <option value="lime">酸橙</option>
-              <option value="coconut">椰子</option>
-              <option value="mango">芒果</option>
-            </select>
-          </label>
-          <span>{this.state.value}</span>
-          <input type="submit" value="提交" />
-        </form>
+        <div>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              选择你喜欢的风味234:
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option value="grapefruit">葡萄柚</option>
+                <option value="lime">酸橙</option>
+                <option value="coconut">椰子</option>
+                <option value="mango">芒果</option>
+              </select>
+            </label>
+            <span>{this.state.value}</span>
+            <input type="submit" value="提交" />
+          </form>
+          <p>子路由</p>
+          <div>{this.props.children}</div>
+        </div>
       );
     }
   }
