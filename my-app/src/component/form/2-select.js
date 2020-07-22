@@ -8,6 +8,11 @@ class MySelect extends React.Component {
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
     }
+
+    componentDidMount() {
+      // 获取参数 HashRouter
+      console.log(this.props.history.location.state2);
+    }
   
     handleChange(event) {
       this.setState({value: event.target.value});

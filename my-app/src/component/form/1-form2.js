@@ -2,6 +2,8 @@ import React from 'react'
 
 /**
  * 处理多个 input 元素时，我们可以给每个元素添加 name 属性，并让处理函数根据 event.target.name 的值选择要执行的操作。
+ * 获取路由参数
+ * 函数跳转路由
  */
 class Reservation extends React.Component {
   constructor(props) {
@@ -11,7 +13,26 @@ class Reservation extends React.Component {
       numberOfGuests: 2
     };
 
+    this.navTo = this.navTo.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  componentDidMount() {
+    // 获取参数
+    console.log(this.props.match.params);
+  }
+
+  navTo() {
+    // HashRouter
+    // this.props.history.push("/select");
+    // 隐形传参，不用在路由地址path中加参数，如/:id
+    // 接收参数this.props.history.location.state
+    this.props.history.push({
+      pathname: "/select",
+      state2: {
+        id: 2
+      }
+    })
   }
 
   handleInputChange(event) {
@@ -44,6 +65,8 @@ class Reservation extends React.Component {
             value={this.state.numberOfGuests}
             onChange={this.handleInputChange} />
         </label>
+        <p>跳转路由</p>
+        <button onClick={this.navTo}>goto select</button>
       </form>
     );
   }

@@ -6,6 +6,6 @@ import MyRouter2 from './router2'
 // import RouterLazy from './router-lazy'
 
 ReactDOM.render(
-  <MyRouter2 />,
+  <MyRouter />,
   document.getElementById('root')
 )

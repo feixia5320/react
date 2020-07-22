@@ -24,6 +24,7 @@ class App extends React.Component {
       "/cont2",
       "/cont3",
       "/ref1",
+      "/router/13",
     ];
     return (
       <div>
