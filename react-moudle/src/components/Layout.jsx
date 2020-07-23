@@ -65,4 +65,5 @@ const MyLayout = () => {
         </Layout>
     )
 }
+
 export default MyLayout;
