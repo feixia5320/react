@@ -25,6 +25,9 @@ class App extends React.Component {
       "/cont3",
       "/ref1",
       "/router/13",
+      "/usememo",
+      "/usecallback",
+      "/usecallback2",
     ];
     return (
       <div>
