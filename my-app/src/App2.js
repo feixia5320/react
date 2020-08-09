@@ -28,6 +28,7 @@ class App extends React.Component {
       "/usememo",
       "/usecallback",
       "/usecallback2",
+      "/redux",
     ];
     return (
       <div>

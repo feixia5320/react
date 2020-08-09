@@ -19,6 +19,8 @@ import WithMemo from './component/hook/useMemo'
 import WithCallback from './component/hook/useCallback'
 import WithCallback2 from './component/hook/useCallback2'
 
+import ReduxApp from './component/redux/index'
+
 const MyRouter = () => (
     <HashRouter>
         <Switch>
@@ -37,6 +39,7 @@ const MyRouter = () => (
             <Route exact path="/usememo" component={WithMemo}/>
             <Route exact path="/usecallback" component={WithCallback}/>
             <Route exact path="/usecallback2" component={WithCallback2}/>
+            <Route exact path="/redux" component={ReduxApp}/>
         </Switch>
     </HashRouter>
 );
