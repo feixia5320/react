@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Redirect, HashRouter, Route, Switch} from 'react-router-dom';
 
 import App from "./App2";
-import Reservation from './component/form/1-form2'
+import MyForm from './component/form/1-form2'
 import MySelect from './component/form/2-select'
 import SignUpDialog from './component/form/3-extend'
 import StatusCalculator from './component/form/4-statetisheng'
@@ -25,8 +25,8 @@ const MyRouter = () => (
     <HashRouter>
         <Switch>
             <Route exact path="/" component={App}/>
+            <Route exact path="/multform" component={MyForm}/>
             <Route exact path="/select" component={MySelect}/>
-            <Route exact path="/multform/:id" component={Reservation}/>
             <Route exact path="/combine" component={SignUpDialog}/>
             <Route exact path="/status" component={StatusCalculator}/>
             <Route exact path="/status2" component={StatusOut}/>
@@ -53,7 +53,7 @@ const MyRouter3 = () => (
                 <App />
             </Route>
             <Route exact path="/select" component={MySelect}/>
-            <Route exact path="/multform/:id" component={Reservation}/>
+            <Route exact path="/multform/:id" component={MyForm}/>
             <Route exact path="/combine" component={SignUpDialog}/>
             <Route exact path="/status" component={StatusCalculator}/>
             <Route exact path="/status2" component={StatusOut}/>
@@ -71,7 +71,7 @@ const MyRouter3 = () => (
 const MyRouter2 = () => {
     return (
         <Router>
-            <Route path="/multform" component={Reservation}/>
+            <Route path="/multform" component={MyForm}/>
             <Route path="/select" render={() => (
                 <MySelect>
                     <Route path="/select/cont0" component={ContextApp0}/>

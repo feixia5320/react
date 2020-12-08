@@ -5,7 +5,7 @@ import React from 'react'
  * 获取路由参数
  * 函数跳转路由
  */
-class Reservation extends React.Component {
+class MyForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -110,4 +110,4 @@ class NameForm extends React.Component {
   }
 }
 */
-export default Reservation;
+export default MyForm;

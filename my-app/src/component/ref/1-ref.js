@@ -57,7 +57,7 @@ class Ref2 extends React.Component {
 
 function Component() {
     return (
-        <p>aa</p>
+        <input type="text" value="aa" />
     )
 }
 
@@ -71,6 +71,7 @@ function logProps(Component) {
         render() {
             const { forwardedRef, ...rest } = this.props;
             // 将自定义的 prop 属性 “forwardedRef” 定义为 ref
+            // TODO forwardedRef
             return <Component ref={forwardedRef} {...rest} />;
         }
     }
@@ -99,6 +100,7 @@ class Ref3 extends React.Component {
         let BewCom = logProps(Component);
         return (
             <div>
+                <h2>ref3</h2>
                 <BewCom ref={this.testref}/>
                 <input type="button" value="获取焦点"
                     onClick={this.handleClick} />

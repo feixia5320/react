@@ -28,7 +28,7 @@ class MySelect extends React.Component {
         <div>
           <form onSubmit={this.handleSubmit}>
             <label>
-              选择你喜欢的风味234:
+              选择你喜欢的风味:
               <select value={this.state.value} onChange={this.handleChange}>
                 <option value="grapefruit">葡萄柚</option>
                 <option value="lime">酸橙</option>

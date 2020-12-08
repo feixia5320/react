@@ -4,7 +4,7 @@ import { hashHistory } from 'react-router'
 // import { IndexRoute } from "react-router";
 
 import App from "./App2";
-import Reservation from "./component/form/1-form2";
+import MyForm from "./component/form/1-form2";
 import MySelect from "./component/form/2-select";
 import SignUpDialog from "./component/form/3-extend";
 import StatusCalculator from "./component/form/4-statetisheng";
@@ -21,7 +21,7 @@ const MyRouter = () => {
     <Router>
         <Route path="/" component={App}>
           <Route path="select" component={MySelect} />
-          <Route path="multform" component={Reservation}>
+          <Route path="multform" component={MyForm}>
               <Route path="combine/:id" component={SignUpDialog} />
           </Route>
         </Route>
@@ -33,7 +33,7 @@ const MyRouter2 = () => {
   return (
     <Router>
       <Route path="/" component={App} />
-      <Route path="/multform" component={Reservation} />
+      <Route path="/multform" component={MyForm} />
       <Route path="/select" component={MySelect} />
       <Route path="/combine" component={SignUpDialog}/>
       <Route path="/status" component={StatusCalculator}/>
