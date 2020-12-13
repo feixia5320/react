@@ -9,6 +9,7 @@ const ChildComp = memo(function ({ info, onClick }) {
 })
 
 
+
 function ParentComp () {
   const [ count, setCount ] = useState(0)
   const increment = () => setCount(count + 1)
