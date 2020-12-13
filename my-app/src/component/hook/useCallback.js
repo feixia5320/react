@@ -15,7 +15,7 @@ export default function Parent() {
   const [count, setCount] = useState(1);
   const [val, setVal] = useState('');
 
-  /** 类似于useMemo函数 */
+  /** 保证返回的函数句柄不变 */
   const callback = useCallback((val) => {
     console.log("parent,callback",val);
     return count;

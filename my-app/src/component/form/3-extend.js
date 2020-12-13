@@ -1,6 +1,7 @@
 import React from 'react'
 /**
  * 组件嵌套
+ * props.children
  */
 function FancyBorder(props) {
     return (

@@ -2,6 +2,8 @@ import {ThemeContext} from './theme-context';
 import React from 'react'
 
 class ThemedButton extends React.Component {
+  // 方法1：绑定context值
+  static contextType = ThemeContext
   render() {
     let props = this.props;
     let theme = this.context;
@@ -14,6 +16,7 @@ class ThemedButton extends React.Component {
     );
   }
 }
-ThemedButton.contextType = ThemeContext;
+// 方法2：绑定context值
+// ThemedButton.contextType = ThemeContext;
 
 export default ThemedButton;
